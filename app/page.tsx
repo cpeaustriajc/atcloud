@@ -5,7 +5,7 @@ import Image from "next/image";
 
 export const config = {
   runtime: "edge",
-}
+};
 
 const fetcher: Fetcher<WeatherData> = async (url: string) => {
   const response = await fetch(url);
@@ -67,38 +67,34 @@ export default function Page() {
 
   return (
     <div className="flex min-h-screen flex-col items-center justify-start">
-      {now && (
-        <>
-          <div className="mt-8 mb-4 flex flex-col items-center justify-center">
-            <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">
-              {now.name}
-            </h1>
-            <small className="text-sm font-medium leading-none">
-              {today.toDateString()}
-            </small>
-          </div>
-          <div className="my-4 text-4xl font-semibold text-slate-900 dark:text-slate-50">
-            <span>{now.main.temp}</span>
-            <span>&deg;C</span>
-          </div>
-          <div className="flex flex-col items-center">
-            <small className="text-sm font-medium leading-none">
-              Feels like {now.main.feels_like}&deg;C
-            </small>
-            <small className="text-sm font-medium capitalize leading-none">
-              {now.weather[0].description}
-            </small>
-          </div>
-          <div className="aspect-square">
-            <Image
-              src={`https://openweathermap.org/img/wn/${now.weather[0].icon}@2x.png`}
-              alt={`${now.weather[0].description} weather icon`}
-              width={96}
-              height={96}
-            />
-          </div>
-        </>
-      )}
+      <div className="mt-8 mb-4 flex flex-col items-center justify-center">
+        <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">
+          {now?.name}
+        </h1>
+        <small className="text-sm font-medium leading-none">
+          {today.toDateString()}
+        </small>
+      </div>
+      <div className="my-4 text-4xl font-semibold text-slate-900 dark:text-slate-50">
+        <span>{now?.main.temp}</span>
+        <span>&deg;C</span>
+      </div>
+      <div className="flex flex-col items-center">
+        <small className="text-sm font-medium leading-none">
+          Feels like {now?.main.feels_like}&deg;C
+        </small>
+        <small className="text-sm font-medium capitalize leading-none">
+          {now?.weather[0].description}
+        </small>
+      </div>
+      <div className="aspect-square">
+        <Image
+          src={`https://openweathermap.org/img/wn/${now?.weather[0].icon}@2x.png`}
+          alt={`${now?.weather[0].description} weather icon`}
+          width={96}
+          height={96}
+        />
+      </div>
     </div>
   );
 }

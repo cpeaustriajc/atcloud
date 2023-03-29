@@ -17,7 +17,7 @@ export async function GET(request: Request) {
     url.searchParams.set("q", city || "California");
   }
 
-  url.searchParams.set("appid", process.env.OPENWEATHERMAP_API_KEY ?? "");
+  url.searchParams.set("appid", process.env.OPENWEATHERMAP_API_KEY);
   url.searchParams.set("units", "metric");
 
   const response = await fetch(url.toString());
