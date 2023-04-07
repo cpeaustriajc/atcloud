@@ -9,9 +9,6 @@ const inter = Inter({
 
 export const metadata = {
   title: "Tenki",
-  icons: {
-    icon: "/favicon.ico",
-  },
 };
 
 type Props = {
