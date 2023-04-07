@@ -93,6 +93,7 @@ export default function Page() {
           alt={`${now?.weather[0].description} weather icon`}
           width={96}
           height={96}
+          loading="eager"
         />
       </div>
     </div>
