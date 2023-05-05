@@ -3,9 +3,7 @@
 import useSWR, { Fetcher } from "swr";
 import Image from "next/image";
 
-export const config = {
-  runtime: "edge",
-};
+export const runtime = "edge";
 
 const fetcher: Fetcher<WeatherData> = async (url: string) => {
   const response = await fetch(url);
