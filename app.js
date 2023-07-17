@@ -33,7 +33,6 @@ function toCelsius(temp) {
 }
 
 const currentWeatherData = await getCurrentWeatherData(coords.latitude, coords.longitude)
-console.log(currentWeatherData)
 root.removeChild(loading)
 
 const weather = document.createElement('div')
