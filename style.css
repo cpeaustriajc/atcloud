@@ -1,0 +1,72 @@
+@layer reset, elements, components;
+
+:root {
+	--color-bg: #fafafa;
+	--color-text: #333333;
+
+	@media (prefers-color-scheme: dark) {
+		--color-bg: #333333;
+		--color-text: #fafafa;
+	}
+}
+
+@layer reset {
+	*,
+	*::before,
+	*::after {
+		box-sizing: border-box;
+	}
+
+	* {
+		margin: 0;
+	}
+
+	body {
+		font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+			Roboto, Oxygen, Ubuntu, 'Open Sans', Cantarell, 'Helvetica Neue',
+			sans-serif;
+		font-size: 16px;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smooting: antialiased;
+		line-height: 1.618;
+	}
+
+	img,
+	picture,
+	video,
+	canvas,
+	svg {
+		display: block;
+		max-width: 100%;
+	}
+
+	input,
+	button,
+	textarea,
+	select {
+		font: inherit;
+	}
+
+	p,
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		overflow-wrap: break-word;
+	}
+}
+
+@layer elements {
+	body {
+		background-color: var(--color-bg);
+		color: var(--color-text);
+	}
+}
+
+@layer components {
+	.heading {
+		text-transform: uppercase;
+	}
+}
