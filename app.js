@@ -58,8 +58,11 @@ class App {
 	}
 
 	render() {
-		const template = `<h1>Hello World</h1>`
-		this.root.innerHTML = template
+		const heading = document.createElement('h1')
+		heading.textContent = `Test`
+		heading.className = 'heading'
+
+		this.root.appendChild(heading)
 	}
 }
 
