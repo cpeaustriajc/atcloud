@@ -38,6 +38,8 @@
  * @property {number} cod
  */
 
+const root = document.querySelector('#app')
+
 /**
  * Fetches weather data from the API
  *
@@ -53,16 +55,12 @@ async function getCurrentWeatherData(lat, lon) {
 }
 
 class App {
-	constructor() {
-		this.root = document.querySelector('#app')
-	}
-
 	render() {
 		const heading = document.createElement('h1')
 		heading.textContent = `Test`
 		heading.className = 'heading'
 
-		this.root.appendChild(heading)
+		root.appendChild(heading)
 	}
 }
 
