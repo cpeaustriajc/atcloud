@@ -38,6 +38,20 @@
  * @property {number} cod
  */
 
+/**
+ * Fetches weather data from the API
+ *
+ * @param {number} lat Latitude
+ * @param {number} lon Longitude
+ * @returns {Promise<OpenWeatherResponse>} Weather data
+ */
+async function getCurrentWeatherData(lat, lon) {
+	const res = await fetch('/api/weather')
+	const data = await res.json()
+
+	return data
+}
+
 class App {
 	constructor() {
 		this.root = document.querySelector('#app')
