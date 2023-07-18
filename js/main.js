@@ -11,6 +11,7 @@ root.appendChild(loading)
 
 
 const currentWeatherData = await getCurrentWeatherData(coords.latitude, coords.longitude)
+
 root.removeChild(loading)
 
 const weather = document.createElement('div')

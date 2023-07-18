@@ -5,22 +5,35 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta name="color-scheme" content="light dark" />
 		<meta name="description" content="Simple weather app" />
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link
-			href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap"
-			rel="stylesheet" />
-		<link rel="stylesheet" href="style.css" />
+			rel="preload"
+			href="/assets/fonts/open-sans-variable-webfont.woff2"
+			as="font"
+			type="font/woff2" crossorigin />
+		<style>
+			@font-face {
+				font-family: 'Open Sans';
+				font-display: swap;
+				src: url('/assets/fonts/open-sans-variable-webfont.woff2')
+					format('woff2');
+			}
+			body {
+				font-family: 'Open Sans', system-ui, -apple-system,
+					BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
+					Cantarell, 'Helvetica Neue', sans-serif;
+			}
+		</style>
+		<link rel="stylesheet" href="/css/main.css" />
 		<link
 			rel="icon"
 			type="image/svg+xml"
 			media="(prefers-color-scheme: dark)"
-			href="/cloud-solid-dark.svg" />
+			href="/assets/icons/cloud-solid-dark.svg" />
 		<link
 			rel="icon"
 			type="image/svg+xml"
 			media="(prefers-color-scheme: light)"
-			href="/cloud-solid-light.svg" />
+			href="/assets/icons/cloud-solid-light.svg" />
 		<title>Tenki</title>
 	</head>
 	<body>
@@ -28,12 +41,14 @@
 		<script type="importmap">
 			{
 				"imports": {
-					"location": "/location.js",
-					"requests": "/requests.js",
-					"utils": "/utils.js"
+					"location": "/js/location.js",
+					"requests": "/js/requests.js",
+					"utils": "/js/utils.js"
 				}
 			}
 		</script>
-		<script type="module" src="/app.js"></script>
+		<script type="module" src="/js/main.js"></script>
+		<script type="module" defer async src="/js/utils.js"></script>
+		<script type="module" defer async src="/js/location.js"></script>
 	</body>
 </html>
