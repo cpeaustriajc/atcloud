@@ -7,6 +7,8 @@ import (
 	"os"
 )
 
+var API_KEY = os.Getenv("OPENWEATHERMAP_API_KEY")
+
 type WeatherData struct {
 	Weather []struct {
 		Description string `json:"description"`
@@ -57,7 +59,6 @@ type WeatherData struct {
 }
 
 func Handler(w http.ResponseWriter, r *http.Request) {
-	api_key := os.Getenv("OPENWEATHERMAP_API_KEY")
 
 	if r.Method != http.MethodPost {
 		http.Error(w, "Invalid request method", http.StatusMethodNotAllowed)
@@ -75,7 +76,7 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	url := fmt.Sprintf("https://api.openweathermap.org/data/2.5/weather?lat=%f&lon=%f&appid=%s", coords.Lat, coords.Lon, api_key)
+	url := fmt.Sprintf("https://api.openweathermap.org/data/2.5/weather?lat=%f&lon=%f&appid=%s", coords.Lat, coords.Lon, API_KEY)
 
 	response, err := http.Get(url)
 
