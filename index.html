@@ -25,6 +25,15 @@
 	</head>
 	<body>
 		<div id="app" style="display: contents; isolation: isolate"></div>
+		<script type="importmap">
+			{
+				"imports": {
+					"location": "/location.js",
+					"requests": "/requests.js",
+					"utils": "/utils.js"
+				}
+			}
+		</script>
 		<script type="module" src="/app.js"></script>
 	</body>
 </html>
