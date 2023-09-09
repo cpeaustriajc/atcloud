@@ -1,3 +1,3 @@
-module tenki/api
+module atcloud/api
 
 go 1.20
