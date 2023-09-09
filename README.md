@@ -1,4 +1,4 @@
-# Tenki
+# Atcloud
 
 A weather app, built with HTML, CSS, JavaScript.
 
