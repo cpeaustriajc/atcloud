@@ -10,10 +10,9 @@ export async function GET(request: Request) {
     "https://api.openweathermap.org/data/2.5/weather"
   );
 
-  if (!lat || !lon) return NextResponse.error();
-
-  openWeatherMapUrl.searchParams.set("lat", lat);
-  openWeatherMapUrl.searchParams.set("lon", lon);
+  // Defaults to San Francisco
+  openWeatherMapUrl.searchParams.set("lat", lat ?? "37.77");
+  openWeatherMapUrl.searchParams.set("lon", lon ?? "-122.43");
   openWeatherMapUrl.searchParams.set(
     "appid",
     process.env["OPENWEATHERMAP_API_KEY"] ?? ""
@@ -25,5 +24,7 @@ export async function GET(request: Request) {
     },
   });
 
-  return NextResponse.json(res);
+  const data = await res.json();
+
+  return NextResponse.json(data);
 }
