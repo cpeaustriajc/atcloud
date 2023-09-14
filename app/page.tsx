@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { CurrentWeatherResponse } from "./weather.types";
+import { Metadata } from "next";
 
 export const runtime = "edge";
 
@@ -11,7 +12,7 @@ const getFullUrl = () => {
   return `https://${process.env.VERCEL_URL}`;
 };
 
-export default async function Home() {
+const getCurrentWeather = async () => {
   const res = await fetch(`${getFullUrl()}/api/weather`, {
     next: { tags: ["weather"] },
   });
@@ -20,7 +21,23 @@ export default async function Home() {
     throw new Error("Failed to get the latest weather data.");
   }
 
-  const data = (await res.json()) as CurrentWeatherResponse;
+  return (await res.json()) as CurrentWeatherResponse;
+};
+
+export async function generateMetadata(): Promise<Metadata> {
+  const data = await getCurrentWeather();
+  return {
+    icons: [
+      {
+        type: "image/png",
+        url: `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`,
+      },
+    ],
+  };
+}
+
+export default async function Home() {
+  const data = await getCurrentWeather();
 
   const toCelsius = (kelvin: number) => {
     return Math.round(kelvin - 273.15);
@@ -46,8 +63,14 @@ export default async function Home() {
         </h1>
         <p className="text-2xl">{data.weather[0].main}</p>
         <p className="text-2xl font-bold">{data.name}</p>
-        <p className="text-xs">Feels Like: {toCelsius(data.main.feels_like)}&deg;C | Humidity: {data.main.humidity} </p>
-        <p className="text-xs">Wind Direction: {getWindDirection(data.wind.deg)}  | Wind Speed: {data.wind.speed} km/h </p>
+        <p className="text-xs">
+          Feels Like: {toCelsius(data.main.feels_like)}&deg;C | Humidity:{" "}
+          {data.main.humidity}{" "}
+        </p>
+        <p className="text-xs">
+          Wind Direction: {getWindDirection(data.wind.deg)} | Wind Speed:{" "}
+          {data.wind.speed} km/h{" "}
+        </p>
       </div>
       <div className="h-[5%] flex justify-center items-center flex-col">
         <p className="text-sm">App made with Next.js and Edge Functions</p>
