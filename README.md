@@ -1,5 +1,3 @@
 # Atcloud
 
-A weather app, built with HTML, CSS, JavaScript.
-
-Backend written in Serverless Functions (Go) in Vercel.
+App showcasing vercel edge functions by using it to get the location and fetching data with the openweathermap api
