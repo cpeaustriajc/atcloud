@@ -6,7 +6,7 @@ export const runtime = "edge";
 
 const getFullUrl = () => {
   if (process.env.NODE_ENV === "development") {
-    return `http://${process.env.VERCEL_URL}`;
+    return `http://localhost:3000`;
   }
 
   return `https://${process.env.VERCEL_URL}`;
