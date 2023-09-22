@@ -24,6 +24,11 @@ export async function GET(request: Request) {
     },
   });
 
+  if (!res.ok) {
+    console.error("Error fetching weather data", res.status, res.statusText)
+    return NextResponse.error();
+  }
+
   const data = await res.json();
 
   return NextResponse.json(data);

@@ -18,6 +18,11 @@ const getCurrentWeather = async () => {
   });
 
   if (!res.ok) {
+    console.error(
+      "Failed to get the latest weather data.",
+      res.status,
+      res.statusText
+    );
     throw new Error("Failed to get the latest weather data.");
   }
 
