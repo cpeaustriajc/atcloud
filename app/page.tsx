@@ -1,6 +1,15 @@
 import Image from "next/image";
 import { CurrentWeatherResponse } from "./weather.types";
 import { Metadata } from "next";
+import dynamic from "next/dynamic";
+const Clock = dynamic(() => import("./clock"), {
+  ssr: false,
+  loading: () => (
+    <div className="animate-pulse">
+      <div className="h-16 w-96 bg-neutral-800 rounded"></div>
+    </div>
+  ),
+});
 
 export const runtime = "edge";
 
@@ -54,9 +63,18 @@ export default async function Home() {
     return directions[index];
   };
 
+  const ClockLoading = () => {
+    return (
+      <div className="animate-pulse">
+        <div className="h-16 w-16 bg-gray-200 rounded-full"></div>
+      </div>
+    );
+  };
+
   return (
     <>
       <div className="h-[95%] flex flex-col justify-center items-center gap-2">
+        <Clock />
         <Image
           src={`http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`}
           width={128}
