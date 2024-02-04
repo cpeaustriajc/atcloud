@@ -1,29 +1,29 @@
 {
-	"name": "@atcloud/web",
-	"private": true,
-	"type": "module",
-	"dependencies": {
-		"@vercel/edge": "^1",
-		"next": "^14",
-		"react": "latest",
-		"react-dom": "latest"
-	},
-	"devDependencies": {
-		"@biomejs/biome": "^1",
-		"@types/node": "^20",
-		"@types/react": "^18",
-		"@types/react-dom": "^18.",
-		"autoprefixer": "^10",
-		"eslint": "^8",
-		"eslint-config-next": "^14",
-		"postcss": "^8",
-		"tailwindcss": "^3",
-		"typescript": "^5"
-	},
-	"scripts": {
-		"dev": "next dev",
-		"build": "next build",
-		"start": "next start",
-		"lint": "next lint"
-	}
+  "name": "@atcloud/web",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@vercel/edge": "^1",
+    "next": "^14",
+    "react": "latest",
+    "react-dom": "latest"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1",
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18.",
+    "autoprefixer": "^10",
+    "eslint": "^8",
+    "eslint-config-next": "^14",
+    "postcss": "^8",
+    "tailwindcss": "^3",
+    "typescript": "^5"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  }
 }
