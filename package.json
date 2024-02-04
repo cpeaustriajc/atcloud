@@ -1,26 +1,6 @@
 {
-  "name": "atcloud",
-  "private": true,
-  "type": "module",
-  "dependencies": {
-    "@types/node": "^20.11.3",
-    "@types/react": "^18.2.48",
-    "@types/react-dom": "^18.2.18",
-    "@vercel/edge": "^1.1.1",
-    "autoprefixer": "^10.4.15",
-    "eslint": "^8.56.0",
-    "eslint-config-next": "^14.0.4",
-    "next": "^14.0.4",
-    "postcss": "^8.4.33",
-    "react": "latest",
-    "react-dom": "latest",
-    "tailwindcss": "^3.4.1",
-    "typescript": "^5.3.3"
-  },
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  }
+	"name": "atcloud",
+	"private": true,
+	"packageManager": "bun@1.0.25",
+	"workspaces": ["apps/*"]
 }
