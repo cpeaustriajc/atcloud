@@ -1,24 +1,48 @@
-import "./globals.css";
-import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export const metadata: Metadata = {
-  title: "Atcloud",
-  description: "Weather app created with Next.js + Edge Functions",
+const APP_TITLE = "Atcloud";
+const APP_DESCRIPTION = "Weather app created with Next.js + Edge Functions";
+
+export const metadata = {
+	title: APP_TITLE,
+	description: APP_DESCRIPTION,
+	appleWebApp: {
+		capable: true,
+		statusBarStyle: "default",
+		title: APP_TITLE,
+	},
+	openGraph: {
+		type: "website",
+		siteName: APP_TITLE,
+		title: APP_TITLE,
+		description: APP_DESCRIPTION,
+	},
+	twitter: {
+		card: "summary",
+		title: APP_TITLE,
+		description: APP_DESCRIPTION,
+	},
+};
+
+export const viewport = {
+	themeColor: "#FFFFFF",
 };
 
 export default function RootLayout({
-  children,
+	children,
 }: {
-  children: React.ReactNode;
+	children: React.ReactNode;
 }) {
-  return (
-    <html lang="en" className="h-full">
-      <body className={`${inter.className} bg-neutral-950 text-neutral-50 h-full`}>
-        {children}
-      </body>
-    </html>
-  );
+	return (
+		<html lang="en" className="h-full">
+			<body
+				className={`${inter.className} bg-neutral-950 text-neutral-50 h-full`}
+			>
+				{children}
+			</body>
+		</html>
+	);
 }
