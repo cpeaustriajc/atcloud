@@ -1,6 +1,6 @@
 {
 	"name": "atcloud",
 	"private": true,
-	"packageManager": "bun@1.0.25",
+	"packageManager": "npm@10.4.0",
 	"workspaces": ["apps/*"]
 }
