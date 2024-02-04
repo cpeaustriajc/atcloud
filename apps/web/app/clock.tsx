@@ -21,7 +21,7 @@ export default function Clock() {
 
 	return (
 		<div className="h-16">
-			<time className="text-6xl font-mono">{time}</time>
+			<time className="text-4xl font-mono">{time}</time>
 		</div>
 	);
 }
