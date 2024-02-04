@@ -65,7 +65,7 @@ export default async function Home() {
 
 	return (
 		<>
-			<div className="h-[95%] flex flex-col justify-center items-center gap-2">
+			<div className="grid justify-center items-center gap-2">
 				<Clock />
 				<Image
 					src={`https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`}
