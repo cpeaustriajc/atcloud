@@ -7,6 +7,10 @@ const APP_TITLE = "Atcloud";
 const APP_DESCRIPTION = "Weather app created with Next.js + Edge Functions";
 
 export const metadata = {
+	icons: {
+		apple: { url: "/icons/apple-touch-icon.png" },
+	},
+	manifest: "/manifest.json",
 	title: APP_TITLE,
 	description: APP_DESCRIPTION,
 	appleWebApp: {
