@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { geolocation } from "@vercel/edge";
+import { geolocation } from "@vercel/functions";
 
 export const runtime = "edge";
 
