@@ -15,7 +15,7 @@ export async function GET(request: Request) {
   openWeatherMapUrl.searchParams.set("lon", lon ?? "-122.43");
   openWeatherMapUrl.searchParams.set(
     "appid",
-    process.env["OPENWEATHERMAP_API_KEY"] ?? ""
+    process.env.OPENWEATHERMAP_API_KEY ?? ""
   );
   const res = await fetch(openWeatherMapUrl.toString(), {
     method: "POST",

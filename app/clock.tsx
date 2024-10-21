@@ -1,27 +1,18 @@
-"use client";
-
 import { useEffect, useState } from "react";
 
 export default function Clock() {
-	const [time, setTime] = useState<string>(() => "");
+  const [time, setTime] = useState<Date>(new Date());
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setTime(new Date());
+    }, 1000);
 
-	// biome-ignore lint: time is needed to be in dependency array to update every tick
-	useEffect(() => {
-		const now = new Date().toLocaleTimeString("en-PH", {
-			hour: "2-digit",
-			minute: "2-digit",
-			second: "2-digit",
-		});
-		const interval = setInterval(() => {
-			setTime(now);
-		}, 1000);
+    return () => clearInterval(interval);
+  }, []);
 
-		return () => clearInterval(interval);
-	}, [time]);
-
-	return (
-		<div className="h-16">
-			<time className="text-4xl font-mono">{time}</time>
-		</div>
-	);
+  return (
+    <div className="h-16">
+      <time className="text-4xl font-mono">{time.toLocaleString()}</time>
+    </div>
+  );
 }

@@ -1,22 +1,27 @@
 //@ts-check
 
-const withSerwist = require("@serwist/next").default({
-	cacheOnFrontEndNav: true,
-	swSrc: "app/sw.ts",
-	swDest: "public/sw.js",
+import withSerwistInit from "@serwist/next";
+
+const withSerwist = withSerwistInit({
+  swDest: "public/sw.js",
+  swSrc: "app/sw.ts",
+  cacheOnNavigation: true,
 });
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-	images: {
-		remotePatterns: [
-			{
-				protocol: "https",
-				hostname: "openweathermap.org",
-				pathname: "/img/wn/**",
-			},
-		],
-	},
+  experimental: {
+    ppr: "incremental",
+  },
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "openweathermap.org",
+        pathname: "/img/wn/**",
+      },
+    ],
+  },
 };
 
-module.exports = withSerwist(nextConfig);
+export default withSerwist(nextConfig);
