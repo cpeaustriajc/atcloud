@@ -4,7 +4,6 @@ import type { CurrentWeatherResponse } from "./weather.types";
 import ClockView from "./clock-view";
 
 export const runtime = "edge";
-export const experimental_ppr = true;
 
 const getFullUrl = () => {
   if (process.env.NODE_ENV === "development") {
