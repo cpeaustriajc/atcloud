@@ -1,6 +1,7 @@
 //@ts-check
 
 import withSerwistInit from "@serwist/next";
+import type { NextConfig } from "next";
 
 const withSerwist = withSerwistInit({
   swDest: "public/sw.js",
@@ -8,8 +9,7 @@ const withSerwist = withSerwistInit({
   cacheOnNavigation: true,
 });
 
-/** @type {import('next').NextConfig} */
-const nextConfig = {
+const nextConfig: NextConfig = {
   images: {
     remotePatterns: [
       {
