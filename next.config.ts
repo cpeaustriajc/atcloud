@@ -1,24 +1,15 @@
-//@ts-check
-
-import withSerwistInit from "@serwist/next";
-import type { NextConfig } from "next";
-
-const withSerwist = withSerwistInit({
-  swDest: "public/sw.js",
-  swSrc: "app/sw.ts",
-  cacheOnNavigation: true,
-});
+import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
-  images: {
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "openweathermap.org",
-        pathname: "/img/wn/**",
-      },
-    ],
-  },
+    images: {
+        remotePatterns: [
+            {
+                protocol: 'https',
+                hostname: 'openweathermap.org',
+                pathname: '/img/wn/**',
+            },
+        ],
+    },
 };
 
-export default withSerwist(nextConfig);
+export default nextConfig;
