@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
-import type { CurrentWeatherResponse } from './weather.types';
 import ClockView from './clock-view';
 
 export const runtime = 'edge';
