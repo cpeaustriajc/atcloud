@@ -87,10 +87,10 @@ export default async function Home() {
         <p className="text-sm">
           Made by:{" "}
           <a
-            href="https://github.com/jaycedotbin"
+            href="https://github.com/cpeaustriajc"
             className="underline  text-xs text-blue-500 font-bold"
           >
-            jaycedotbin
+            cpeaustriajc
           </a>
         </p>
       </div>
