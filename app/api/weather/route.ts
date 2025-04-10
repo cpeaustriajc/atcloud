@@ -7,7 +7,7 @@ export async function GET(request: Request) {
   const { latitude: lat, longitude: lon } = geolocation(request);
 
   const openWeatherMapUrl = new URL(
-    "https://api.openweathermap.org/data/2.5/weather"
+    "https://api.openweathermap.org/data/3.0/onecall"
   );
 
   // Defaults to San Francisco
